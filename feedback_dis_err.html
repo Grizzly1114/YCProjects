@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Feedback Form</h1>
+    <form action="handle_form.php" method="post">
+        //title
+        <label for="title">Title:</label>
+        <select name="title" id="title" required>
+            <option value="">Select</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Dr.">Dr.</option>
+        </select>
+        <br><br>
+
+        //first name
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <br><br>
+
+        //last Name
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <br><br>
+
+        //email
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+
+        //reponse
+        <label for="response">How did you find this example?</label>
+        <select name="response" id="response" required>
+            <option value="">Select</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Average">Average</option>
+            <option value="Poor">Poor</option>
+        </select>
+        <br><br>
+
+        //comment
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+        <br><br>
+
+        <input type="submit" value="Submit Feedback">
+    </form>
+</body>
+</html>
+
