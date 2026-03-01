@@ -42,9 +42,25 @@ print "<p>The third chapter of my first book is <i>{$books['PHP VQS'][3]}</i>.</
 print "<p>The first chapter of my second book is <i>{$books['PHP Advanced VQP'][1]}</i>.</p>";
 print "<p>The fourth chapter of my third book is <i>{$books['PHP and MySQL VQP'][4]}</i>.</p>";
 
-//see what happens with foreach:
+
+
+/*see what happens with foreach:
 foreach ($books as $key => $value) {
    print "<p>$key: $value</p>\n";
+}*/
+
+/*My foreach solution implode array
+foreach ($books as $key => $chapters) {
+    print "<p>$key: " . implode(", ", $chapters) . "</p>\n";
+}*/
+
+//Instructors solution - // print with foreach
+foreach ($books as $title => $chapters) {
+	print "<p>$title";
+	foreach ($chapters as $number => $chapter){
+		print "<br/>Chapter $number is $chapter";
+	}
+	print '</p>';
 }
 ?>
 </body>
