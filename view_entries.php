@@ -6,7 +6,17 @@
 </head>
 <body>
 <h1>My Blog</h1>
+
 <?php 
+// Show success note
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 'edited') {
+        echo "<p style='color:green;'>Entry updated successfully!</p>";
+    } elseif ($_GET['status'] == 'deleted') {
+        echo "<p style='color:green;'>Entry deleted successfully!</p>";
+    }
+}
+
 // Connect and select:
 $dbc = mysqli_connect('localhost', 'root', '762X51mmNato$', 'myblog');
 
