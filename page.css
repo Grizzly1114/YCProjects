@@ -1,0 +1,71 @@
+/* page.css - EmailBook styling */
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* light grey background */
+    margin: 20px;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #d9d9d9; /* slightly darker grey for header */
+    border-bottom: 2px solid green; /* green border below header */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #d9d9d9;
+    border-top: 2px solid green; /* green border above footer */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 2px solid green; /* green border for table and cells */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Form input styling */
+input[type="text"], input[type="email"] {
+    padding: 5px;
+    margin: 5px 0;
+    width: 250px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    padding: 5px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover {
+    text-decoration: underline;
+}

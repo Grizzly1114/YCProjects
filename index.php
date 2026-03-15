@@ -1,24 +1,42 @@
-<?php // Script 8.4 - index.php
-/* This is the home page for this site.
-It uses templates to create the layout.
-*/
-
-// Include the header:
-include('templates/header.html');
-?>
-
-<h2>Welcome to a J.D. Salinger Fan Club!</h2>
-
-<p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-in culpa qui officia deserunt mollit anim id est laborum.
-</p>
-
 <?php
-// Include the footer.
-include('templates/footer.html');
-?>
+/*
+-- EMAILBOOK FORM PAGE --
+Includes the database connection file to allow form processing in process.php
+*/
+ include('db_connect.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>EmailBook Form</title>
+<link rel="stylesheet" type="text/css" href="page.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <h1>EmailBook Project</h1>
+    <p>Author: Anthony Battista | © 2026</p>
+</header>
+<!-- Main content -->
+<main>
+<h2>Enter Contact</h2>
+<!-- Form to collect contact information -->
+<form method="post" action="process.php">
+  First Name: <input type="text" name="first_name" required><br>
+  Last Name: <input type="text" name="last_name" required><br>
+  Address: <input type="text" name="address" required><br>
+  City: <input type="text" name="city" required><br>
+  State: <input type="text" name="state" maxlength="2" required><br>
+  Phone: <input type="text" name="phone" required><br>
+  Email: <input type="email" name="email" required><br>
+  <input type="submit" value="Submit">
+</form>
+<!-- Link to view all stored contacts -->
+<a href="list.php">View Stored Contacts</a>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Anthony Battista. All rights reserved.</p>
+</footer>
+</body>
+</html>
