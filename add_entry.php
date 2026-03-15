@@ -6,33 +6,46 @@ if (!$dbc) { die("Database connection failed: " . mysqli_connect_error()); }
 // Handle Add Entry
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'add') {
     if (!empty($_POST['title']) && !empty($_POST['entry'])) {
-        $title = trim($_POST['title']);
-        $entry = trim($_POST['entry']);
-        $stmt = $dbc->prepare("INSERT INTO entries (title, entry, date_entered) VALUES (?, ?, NOW())");
-        $stmt->bind_param("ss", $title, $entry);
-        $stmt->execute();
-        $stmt->close();
+        
+		// ###code revision snippet for security##
+		$title = trim($_POST['title']);
+		$entry = trim($_POST['entry']);		
+		$title = mysqli_real_escape_string($dbc, $title);
+		$entry = mysqli_real_escape_string($dbc, $entry);
+		$stmt = $dbc->prepare("INSERT INTO entries (title, entry, date_entered) VALUES (?, ?, NOW())");
+		$stmt->bind_param("ss", $title, $entry);
+		$stmt->execute();
+		$stmt->close();
     }
 }
 
 // Handle Delete Entry
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'delete') {
-    $id = intval($_POST['id']);
-    $stmt = $dbc->prepare("DELETE FROM entries WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $stmt->close();
+    
+	// ##code revision snippet for security##
+    $id = intval($_POST['id']); // ensures $id is a number
+	$stmt = $dbc->prepare("DELETE FROM entries WHERE id = ?");
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$stmt->close();
+	
 }
 
 // Handle Edit Entry
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'edit') {
+    
+	// ##code revision snippet for security##
     $id = intval($_POST['id']);
-    $title = trim($_POST['title']);
-    $entry = trim($_POST['entry']);
-    $stmt = $dbc->prepare("UPDATE entries SET title = ?, entry = ? WHERE id = ?");
-    $stmt->bind_param("ssi", $title, $entry, $id);
-    $stmt->execute();
-    $stmt->close();
+	$title = trim($_POST['title']);
+	$entry = trim($_POST['entry']);
+	$title = mysqli_real_escape_string($dbc, $title);
+	$entry = mysqli_real_escape_string($dbc, $entry);
+	
+
+$stmt = $dbc->prepare("UPDATE entries SET title = ?, entry = ? WHERE id = ?");
+$stmt->bind_param("ssi", $title, $entry, $id);
+$stmt->execute();
+$stmt->close();
 }
 
 // Fetch all entries
